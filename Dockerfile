@@ -32,4 +32,6 @@ VOLUME /ghost
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
 
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
+
+EXPOSE 2368
