@@ -2,6 +2,10 @@ FROM node:6.11.1
 
 MAINTAINER Matt Farmer <matt@frmr.me>
 
+RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64
+
+RUN chmod +x /usr/local/bin/dumb-init
+
 RUN apt-get update && \
   apt-get install -y zip unzip && \
   apt-get clean
@@ -22,7 +26,10 @@ USER ghost
 
 RUN npm install
 
-RUN ln -s /opt/ghost/content/config.js /opt/ghost/config.js
+RUN ln -s /ghost/config.production.json /opt/ghost/config.production.json
 
-VOLUME /opt/ghost/content
+VOLUME /ghost
 
+ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
+
+CMD ["node", "index.js"]
