@@ -28,6 +28,9 @@ RUN npm install
 
 RUN ln -s /ghost/config.production.json /opt/ghost/config.production.json
 
+RUN mv /opt/ghost/content /opt/ghost/content-default && \
+  ln -s /ghost /opt/ghost/content
+
 VOLUME /ghost
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
