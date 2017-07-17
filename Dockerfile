@@ -27,11 +27,11 @@ USER ghost
 RUN npm install
 
 RUN mv /opt/ghost/content /opt/ghost/content-default && \
-  ln -s /ghost /opt/ghost/content
+  mkdir content
 
 ADD docker-command.sh /opt/docker-command.sh
 
-VOLUME /ghost
+VOLUME /opt/ghost/content
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
 
