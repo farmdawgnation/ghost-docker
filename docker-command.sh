@@ -24,6 +24,12 @@ if [[ ! -d "content/images" ]]; then
   mkdir content/images
 fi
 
-node_modules/.bin/knex-migrator migrate --init
+# Init is idempotent. It will only create tables if they don't already
+# exist.
+node_modules/.bin/knex-migrator init
 
+# Migrate the database if needed.
+node_modules/.bin/knex-migrator migrate
+
+# Start ghost
 npm start

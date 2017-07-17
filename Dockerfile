@@ -22,6 +22,11 @@ RUN adduser ghost
 
 RUN chown -R ghost:ghost /opt/ghost
 
+ADD docker-command.sh /opt/docker-command.sh
+
+RUN chown ghost:ghost /opt/docker-command.sh && \
+  chmod ugo+x /opt/docker-command.sh
+
 USER ghost
 
 RUN npm install
@@ -29,7 +34,6 @@ RUN npm install
 RUN mv /opt/ghost/content /opt/ghost/content-default && \
   mkdir content
 
-ADD docker-command.sh /opt/docker-command.sh
 
 VOLUME /opt/ghost/content
 
