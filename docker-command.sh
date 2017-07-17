@@ -1,26 +1,26 @@
 #!/bin/bash
 
-if [[ ! -d "content/themes" ]]; then
+if [ ! -d "content/themes" ]; then
   cp -R content-default/themes content/themes
 fi
 
-if [[ ! -d "content/logs" ]]; then
+if [ ! -d "content/logs" ]; then
   mkdir content/logs
 fi
 
-if [[ ! -d "content/adapters" ]]; then
+if [ ! -d "content/adapters" ]; then
   mkdir content/adapters
 fi
 
-if [[ ! -d "content/apps" ]]; then
+if [ ! -d "content/apps" ]; then
   mkdir content/apps
 fi
 
-if [[ ! -d "content/data" ]]; then
+if [ ! -d "content/data" ]; then
   mkdir content/data
 fi
 
-if [[ ! -d "content/images" ]]; then
+if [ ! -d "content/images" ]; then
   mkdir content/images
 fi
 
