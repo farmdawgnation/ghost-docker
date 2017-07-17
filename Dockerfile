@@ -26,15 +26,15 @@ USER ghost
 
 RUN npm install
 
-RUN ln -s /ghost/config.production.json /opt/ghost/config.production.json
-
 RUN mv /opt/ghost/content /opt/ghost/content-default && \
   ln -s /ghost /opt/ghost/content
+
+ADD docker-command.sh /opt/docker-command.sh
 
 VOLUME /ghost
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
 
-CMD ["npm", "start"]
+CMD ["/opt/docker-command.sh"]
 
 EXPOSE 2368
