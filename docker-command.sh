@@ -24,6 +24,9 @@ if [ ! -d "content/images" ]; then
   mkdir content/images
 fi
 
+# Ensure the latest version of casper is in content dir
+cp -R content-default/themes/casper content/themes/
+
 # Init is idempotent. It will only create tables if they don't already
 # exist.
 node_modules/.bin/knex-migrator init
