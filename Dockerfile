@@ -10,9 +10,11 @@ RUN apt-get update && \
   apt-get install -y zip unzip && \
   apt-get clean
 
-ADD https://github.com/TryGhost/Ghost/releases/download/1.1.0/Ghost-1.1.0.zip /opt
+ENV GHOSTVER 1.1.0
 
-RUN unzip /opt/Ghost-1.1.0.zip -d /opt/ghost
+ADD https://github.com/TryGhost/Ghost/releases/download/$GHOSTVER/Ghost-$GHOSTVER.zip /opt
+
+RUN unzip /opt/Ghost-$GHOSTVER.zip -d /opt/ghost
 
 WORKDIR /opt/ghost
 
