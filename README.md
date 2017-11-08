@@ -1,7 +1,7 @@
 Dockerized Ghost
 ================
 
-This docker image contains Ghost 1.0.0 RC1.
+This docker image contains Ghost 1.x.
 
 You'll need to mount two volumes:
 
