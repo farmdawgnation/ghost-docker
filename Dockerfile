@@ -1,4 +1,4 @@
-FROM node:8.9.0
+FROM node:8.9.3
 
 MAINTAINER Matt Farmer <matt@frmr.me>
 
@@ -10,7 +10,7 @@ RUN apt-get update && \
   apt-get install -y zip unzip && \
   apt-get clean
 
-ENV GHOSTVER 1.18.3
+ENV GHOSTVER 1.18.4
 
 ADD https://github.com/TryGhost/Ghost/releases/download/$GHOSTVER/Ghost-$GHOSTVER.zip /opt
 
