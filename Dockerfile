@@ -10,7 +10,7 @@ RUN apt-get update && \
   apt-get install -y zip unzip && \
   apt-get clean
 
-ENV GHOSTVER 2.2.4
+ENV GHOSTVER 2.7.1
 
 ADD https://github.com/TryGhost/Ghost/releases/download/$GHOSTVER/Ghost-$GHOSTVER.zip /opt
 
