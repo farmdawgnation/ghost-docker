@@ -1,4 +1,4 @@
-FROM node:8.12.0
+FROM node:10.15.0
 
 MAINTAINER Matt Farmer <matt@frmr.me>
 
