@@ -2,12 +2,8 @@ FROM node:10.15.0
 
 MAINTAINER Matt Farmer <matt@frmr.me>
 
-RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64
-
-RUN chmod +x /usr/local/bin/dumb-init
-
 RUN apt-get update && \
-  apt-get install -y zip unzip && \
+  apt-get install -y zip unzip dumb-init && \
   apt-get clean
 
 ENV GHOSTVER 2.2.4
@@ -33,7 +29,7 @@ USER ghost
 
 RUN npm install
 
-ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
+ENTRYPOINT ["dumb-init", "--"]
 
 CMD ["/opt/docker-command.sh"]
 
