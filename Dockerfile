@@ -1,9 +1,9 @@
-FROM node:10.15.0
+FROM node:10.15.0-slim
 
 MAINTAINER Matt Farmer <matt@frmr.me>
 
 RUN apt-get update && \
-  apt-get install -y zip unzip dumb-init && \
+  apt-get install -y zip unzip dumb-init python build-essential && \
   apt-get clean
 
 ENV GHOSTVER 2.11.1
