@@ -1,9 +1,5 @@
 #!/bin/bash
 
-START_YELLOW="\e[93m"
-START_BOLD="\e[1m"
-RESET_FORMAT="\e[0m"
-
 set -e
 
 echo "Starting goss container"
@@ -15,7 +11,7 @@ echo "Goss container is $GOSSCONTAINER"
 
 echo "travis_fold:start:image_build"
 
-echo "$START_BOLD $START_YELLOW Building ghost image$RESET_FORMAT"
+echo "Building ghost image"
 
 docker build .
 
