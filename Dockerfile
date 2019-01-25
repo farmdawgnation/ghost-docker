@@ -23,7 +23,7 @@ RUN chown -R ghost:ghost /opt/ghost
 ADD docker-command.sh /opt/docker-command.sh
 
 RUN chown ghost:ghost /opt/docker-command.sh && \
-  chmod ugo+x /opt/docker-command.sh
+  chmod 755 /opt/docker-command.sh
 
 USER ghost
 
