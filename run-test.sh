@@ -2,13 +2,6 @@
 
 set -e
 
-echo "Starting goss container"
-
-GOSSIMAGE="aelsabbahy/goss"
-GOSSCONTAINER=$(docker run -d $GOSSIMAGE)
-
-echo "Goss container is $GOSSCONTAINER"
-
 echo "travis_fold:start:image_build"
 
 echo "Building ghost image"
@@ -22,6 +15,13 @@ echo "Determining ghost container id"
 IMAGE=$(docker images -q | head -n 1)
 
 echo "Pretty sure the ghost image is $IMAGE"
+
+echo "Starting goss container"
+
+GOSSIMAGE="aelsabbahy/goss"
+GOSSCONTAINER=$(docker run -d $GOSSIMAGE)
+
+echo "Goss container is $GOSSCONTAINER"
 
 echo "Starting ghost container"
 
