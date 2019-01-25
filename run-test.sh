@@ -9,9 +9,13 @@ GOSSCONTAINER=$(docker run -d $GOSSIMAGE)
 
 echo "Goss container is $GOSSCONTAINER"
 
-echo "Building ghost container"
+echo "Building ghost image"
+
+echo "travis_fold:start:Image build"
 
 docker build .
+
+echo "travis_fold:end:Image build"
 
 echo "Determining ghost container id"
 
