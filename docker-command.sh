@@ -1,38 +1,26 @@
 #!/bin/bash
 
-if [ ! -d "content/themes" ]; then
-  cp -R content-default/themes content/themes
+set -e
+
+#####
+# Install extra storage modules
+#
+# Storage modules can be specified in the environment variable STORAGE_MODULES
+# in a comma separated list of npm modules to install and copy into the
+# storage directory for use.
+#
+# You must also turn the module on in your config for it to take effect.
+#####
+if [ ! -d "content/storage" ]; then
+  mkdir content/storage
 fi
 
-if [ ! -d "content/logs" ]; then
-  mkdir content/logs
-fi
-
-if [ ! -d "content/adapters" ]; then
-  mkdir content/adapters
-fi
-
-if [ ! -d "content/apps" ]; then
-  mkdir content/apps
-fi
-
-if [ ! -d "content/data" ]; then
-  mkdir content/data
-fi
-
-if [ ! -d "content/images" ]; then
-  mkdir content/images
-fi
-
-# Ensure the latest version of casper is in content dir
-cp -R content-default/themes/casper content/themes/
-
-# Init is idempotent. It will only create tables if they don't already
-# exist.
-node_modules/.bin/knex-migrator init
-
-# Migrate the database if needed.
-node_modules/.bin/knex-migrator migrate
+IFS=',' read -r -a storages <<< "$STORAGE_MODULES"
+for storage in "${storages[@]}"; do
+  echo "Installing $storage"
+  npm install $storage
+  cp -r node_modules/$storage content/storage/
+done
 
 # Start ghost
 npm start
