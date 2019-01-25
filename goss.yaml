@@ -1,0 +1,25 @@
+file:
+  /opt/docker-command.sh:
+    exists: true
+    mode: "0755"
+    size: 602
+    owner: ghost
+    group: ghost
+    filetype: file
+    contains: []
+user:
+  ghost:
+    exists: true
+    uid: 1001
+    gid: 1001
+    groups:
+    - ghost
+    home: /home/ghost
+    shell: /bin/bash
+http:
+  http://localhost:2368:
+    status: 200
+    allow-insecure: false
+    no-follow-redirects: false
+    timeout: 5000
+    body: []
