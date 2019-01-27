@@ -11,15 +11,15 @@ set -e
 #
 # You must also turn the module on in your config for it to take effect.
 #####
-if [ ! -d "content/storage" ]; then
-  mkdir content/storage
+if [ ! -d "content/adapters/storage" ]; then
+  mkdir content/adapters/storage
 fi
 
 IFS=',' read -r -a storages <<< "$STORAGE_MODULES"
 for storage in "${storages[@]}"; do
   echo "Installing $storage"
   npm install $storage
-  cp -r node_modules/$storage content/storage/
+  cp -r node_modules/$storage content/adapters/storage/
 done
 
 # Start ghost
