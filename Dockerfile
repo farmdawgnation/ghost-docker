@@ -6,7 +6,7 @@ RUN apt-get update && \
   apt-get install -y zip unzip dumb-init python build-essential && \
   apt-get clean
 
-ENV GHOSTVER 2.12.0
+ENV GHOSTVER 2.13.1
 
 ADD https://github.com/TryGhost/Ghost/releases/download/$GHOSTVER/Ghost-$GHOSTVER.zip /opt
 
