@@ -2,7 +2,7 @@ file:
   /opt/docker-command.sh:
     exists: true
     mode: "0755"
-    size: 602
+    size: 629
     owner: ghost
     group: ghost
     filetype: file
