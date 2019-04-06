@@ -1,4 +1,4 @@
-FROM node:10.15.3-slim
+FROM node:10.15.0-slim
 
 MAINTAINER Matt Farmer <matt@frmr.me>
 
